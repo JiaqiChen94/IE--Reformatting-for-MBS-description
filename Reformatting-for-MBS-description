@@ -1,0 +1,33 @@
+import pandas as pd
+# ('file', encoding = "ISO-8859-1")
+df = pd.read_csv("cleaned xml_Tim_09051921.csv", encoding = "ISO-8859-1")
+
+a = df['Description'].loc[0]
+b = '"' + a + '"'
+b
+
+for i in range(df.shape[0]):
+    a = df['Description'].loc[i]
+    b = '"' + a + '"'
+    df['Description'][i] = b
+print("Done")
+
+df['Description'].loc[0]
+
+a = df['Group'].loc[0]
+b = '"' + a + '"'
+b
+for i in range(df.shape[0]):
+    a = df['Group'].loc[i]
+    b = '"' + a + '"'
+    df['Group'][i] = b
+print("Done")
+
+df['Group'].loc[0]
+
+# to csv ifle
+df.to_csv("New cleaned xml_Tim_09051921.csv", index = False)
+
+# try 
+try_it = pd.read_csv("New cleaned xml_Tim_09051921.csv")
+try_it.head()
